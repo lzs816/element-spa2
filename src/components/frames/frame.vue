@@ -17,6 +17,8 @@
 <script>
 import headBar from './headbar'
 import sideBar from './sidebar'
+import { mapGetters } from 'vuex'
+
 export default {
   data: () => ({
     isCollapse: false
@@ -26,6 +28,10 @@ export default {
     handleSidebar(isCollapse) {
       this.isCollapse = isCollapse
     }
+  },
+
+  computed: {
+    ...mapGetters(['bread'])
   },
 
   components: {

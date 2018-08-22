@@ -1,19 +1,19 @@
 <template>
   <aside class="aside">
-    <el-menu default-active="1-4-1" class="el-menu-vertical-demo" :collapse="isCollapse" router>
+    <el-menu :default-active="thisRoute.path" class="el-menu-vertical-demo" :collapse="isCollapse" router>
       <template v-for="(item, index) in routers">
-        <el-submenu v-if="item.subRouters" :key="index" :index="item.routerPath">
+        <el-submenu v-if="item.children" :key="index" :index="item.path">
           <template slot="title">
-            <i :class="item.icon"></i>
-            <span>{{ item.name }}</span>
+            <i :class="item.meta.icon"></i>
+            <span>{{ item.meta.title }}</span>
           </template>
-          <el-menu-item v-for="subItem in item.subRouters" :index="subItem.routerPath" :key="subItem.routerPath">
-            {{ subItem.name }}
+          <el-menu-item v-for="subItem in item.children" :index="subItem.path" :key="subItem.path">
+            {{ subItem.meta.title }}
           </el-menu-item>
         </el-submenu>
-        <el-menu-item v-else :index="item.routerPath" :key="index">
-          <i :class="item.icon"></i>
-          <span slot="title">{{ item.name }}</span>
+        <el-menu-item v-else :index="item.path" :key="index">
+          <i :class="item.meta.icon"></i>
+          <span slot="title">{{ item.meta.title }}</span>
         </el-menu-item>
       </template>
     </el-menu>
@@ -21,6 +21,8 @@
 </template>
 
 <script>
+import { routerMap } from '@/router/routerMap'
+
 export default {
   props: {
     isCollapse: {
@@ -31,38 +33,14 @@ export default {
   },
 
   data: () => ({
-    routers: [{
-      name: 'Dashboard',
-      icon: 'iconfont icon-index-on',
-      routerPath: 'index',
-    },
-    {
-      name: '人员管理',
-      icon: 'iconfont icon-renyuanguanli',
-      routerPath: 'userList',
-      active: false,
-      subRouters: [{
-        name: '用户列表',
-        routerPath: 'userList'
-      },
-      {
-        name: '部门列表',
-        routerPath: 'deptList'
-      },
-      {
-        name: '角色列表',
-        routerPath: 'roleList',
-      },
-      {
-        name: '权限列表',
-        routerPath: 'privilegeList'
-      },
-      {
-        name: '权限组列表',
-        routerPath: 'privilegeGroupList'
-      }]
-    }]
-  })
+    routers: routerMap[0].children
+  }),
+
+  computed: {
+    thisRoute() {
+      return this.$route
+    }
+  }
 }
 </script>
 

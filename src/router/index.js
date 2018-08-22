@@ -14,6 +14,8 @@ router.beforeEach((to, from, next) => {
     Vue.prototype.$message.info('尚未登录')
     return next({ name: 'login' })
   }
+
+  if (to.meta.bread) store.dispatch('BREAD', to.matched)
   next()
 })
 
