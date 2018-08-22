@@ -1,10 +1,19 @@
+import Vue from 'vue'
 import router from './routerMap.js'
+import store from '@/store'
 
 const setTitle = (route) => {
   document.title = route.meta.title ? route.meta.title : 'element-spa2'
 }
 
 router.beforeEach((to, from, next) => {
+  let auth = to.meta.auth
+  let isLogin = Boolean(store.state.User.username)
+
+  if (auth && !isLogin) {
+    Vue.prototype.$message.info('尚未登录')
+    return next({ name: 'login' })
+  }
   next()
 })
 

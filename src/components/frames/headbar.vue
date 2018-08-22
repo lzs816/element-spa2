@@ -32,6 +32,11 @@ export default {
   methods: {
     handleCommand(command) {
       this.$message.success(command)
+      if (command === 'exit') {
+        this.$router.replace({
+          name: 'login'
+        })
+      }
     },
 
     handleSidebar() {
