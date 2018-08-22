@@ -19,10 +19,28 @@ html, body, #app, .el-container{
   .el-main{
     background-color: #f6f6f6;
     .page-content{
-      border: 1px solid #ddd;
+      box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
       background-color: #fff;
       border-radius: 4px;
       padding: 20px;
+      .button-field{
+        padding-bottom: 10px;
+      }
+    }
+    .search-card{
+      margin-bottom: 15px;
+      .el-card__header{
+        padding: 10px 20px;
+        .icon{
+          float: right;
+          font-size: 18px;
+          font-weight: bold;
+          cursor: pointer;
+        }
+      }
+      .body{
+        padding: 20px;
+      }
     }
   }
 }

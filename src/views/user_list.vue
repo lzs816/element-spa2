@@ -1,14 +1,23 @@
 <template>
-  <div class="page-content">
-    <v-table
-      :data="tableData"
-      :columns="columns"
-    ></v-table>
+  <div class="page">
+    <search-field title="高级搜索">
+      asdnaskjdnsa
+    </search-field>
+    <div class="page-content">
+      <div class="button-field">
+        <el-button type="primary" size="small">添加用户</el-button>
+      </div>
+      <v-table
+        :data="tableData"
+        :columns="columns"
+      ></v-table>
+    </div>
   </div>
 </template>
 
 <script>
 import vTable from '@/components/tools/vtable'
+import searchField from '@/components/tools/searchField'
 
 export default {
   data: () => ({
@@ -27,6 +36,7 @@ export default {
     }, {
       label: '操作',
       type: 'action',
+      width: '100',
       buttonInfos: [{
         name: 'detail',
         label: '编辑',
@@ -54,7 +64,7 @@ export default {
   }),
 
   components: {
-    vTable
+    vTable, searchField
   }
 }
 </script>
