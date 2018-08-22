@@ -9,9 +9,7 @@ export default {
       let bread = []
       for (let i = 1; i < state.matchedRouter.length; i++) {
         let obj = {
-          title: state.matchedRouter[i].meta.title,
-          routerName: state.matchedRouter[i].name,
-          disabled: i === 1 || i === (state.matchedRouter.length - 1)
+          title: state.matchedRouter[i].meta.title
         }
         bread.push(obj)
       }

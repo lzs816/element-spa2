@@ -15,7 +15,7 @@ router.beforeEach((to, from, next) => {
     return next({ name: 'login' })
   }
 
-  if (to.meta.bread) store.dispatch('BREAD', to.matched)
+  if (!to.meta.noBread) store.dispatch('BREAD', to.matched)
   next()
 })
 
