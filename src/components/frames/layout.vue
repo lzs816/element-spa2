@@ -1,13 +1,11 @@
 <template>
   <div class="page-layout">
-    <el-breadcrumb separator="/" style="margin: 15px 0;">
-      <el-breadcrumb-item v-for="item in bread">
+    <el-breadcrumb separator="/" style="margin: 15px 0 25px;">
+      <el-breadcrumb-item v-for="item in bread" :key="item.title">
         {{ item.title }}
       </el-breadcrumb-item>
     </el-breadcrumb>
-    <div class="page-content">
-      <router-view></router-view>
-    </div>
+    <router-view></router-view>
   </div>
 </template>
 
