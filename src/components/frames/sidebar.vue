@@ -1,17 +1,17 @@
 <template>
   <aside class="aside">
-    <el-menu :default-active="thisRoute.path" class="el-menu-vertical-demo" :collapse="isCollapse" router>
+    <el-menu unique-opened :default-active="thisRoute.path" class="el-menu-vertical-demo" :collapse="isCollapse" router>
       <template v-for="(item, index) in routers">
         <el-submenu v-if="item.children" :key="index" :index="item.path">
           <template slot="title">
             <i :class="item.meta.icon"></i>
             <span>{{ item.meta.title }}</span>
           </template>
-          <el-menu-item v-for="subItem in item.children" :index="subItem.path" :key="subItem.path">
+          <el-menu-item v-for="subItem in item.children" v-if="!subItem.meta.notMenu" :index="subItem.path" :key="subItem.path">
             {{ subItem.meta.title }}
           </el-menu-item>
         </el-submenu>
-        <el-menu-item v-else :index="item.path" :key="index">
+        <el-menu-item v-else-if="!item.meta.notMenu" :index="item.path" :key="index">
           <i :class="item.meta.icon"></i>
           <span slot="title">{{ item.meta.title }}</span>
         </el-menu-item>

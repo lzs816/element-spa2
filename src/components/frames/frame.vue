@@ -4,7 +4,7 @@
       <head-bar v-on:sidebar="handleSidebar"></head-bar>
     </el-header>
     <el-container>
-      <el-aside width="280px">
+      <el-aside :width="isCollapse ? '64px' : '280px'">
         <side-bar :is-collapse="isCollapse"></side-bar>
       </el-aside>
       <el-main>
