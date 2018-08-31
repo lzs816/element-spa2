@@ -3,6 +3,10 @@ import VeeValidate, { Validator } from 'vee-validate'
 import zh_CN from 'vee-validate/dist/locale/zh_CN'
 
 Validator.localize('zh_CN', zh_CN)
+const config = {
+  errorBagName: 'errorsBags',
+  fieldsBagName: 'fieldBags'
+}
 
 const validators = {
   mobile: {
@@ -15,4 +19,4 @@ Object.keys(validators).forEach(item => {
   Validator.extend(item, validators[item])
 })
 
-Vue.use(VeeValidate)
+Vue.use(VeeValidate, config)

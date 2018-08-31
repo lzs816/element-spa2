@@ -1,8 +1,9 @@
 <template>
   <el-card class="search-card" :body-style="{ padding: 0 }">
-    <div slot="header" class="clearfix search-header">
+    <div slot="header" class="clearfix search-header" @click="handleClick">
       <span>{{ title }}</span>
-      <i class="icon el-icon-plus" @click="handleClick"></i>
+      <i class="icon el-icon-minus" v-if="showField"></i>
+      <i class="icon el-icon-plus" v-else></i>
     </div>
     <el-collapse-transition>
       <div v-show="showField">
@@ -17,7 +18,7 @@
 <script>
 export default {
   data: () => ({
-    showField: false
+    showField: true
   }),
 
   props: {
