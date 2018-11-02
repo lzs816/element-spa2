@@ -30,7 +30,22 @@
     "chai": "^4.1.2",
     "less": "^3.0.4",
     "less-loader": "^4.1.0",
+    "lint-staged": "^8.0.4",
     "vue-template-compiler": "^2.5.17",
-    "vuepress": "^0.14.2"
+    "vuepress": "^0.14.2",
+    "yorkie": "^2.0.0"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.js": [
+      "vue-cli-service lint",
+      "git add"
+    ],
+    "*.vue": [
+      "vue-cli-service lint",
+      "git add"
+    ]
   }
 }
