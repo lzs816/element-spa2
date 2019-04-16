@@ -22,7 +22,7 @@ export default {
     }
   },
   actions: {
-    [BREAD]({commit}, data) {
+    [BREAD]({ commit }, data) {
       commit(BREAD, data)
     }
   }

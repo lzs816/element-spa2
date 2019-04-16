@@ -10,7 +10,7 @@ export default {
     }
   },
   actions: {
-    [ROW_SELECT]({commit}, data) {
+    [ROW_SELECT]({ commit }, data) {
       commit(ROW_SELECT, data)
     }
   }

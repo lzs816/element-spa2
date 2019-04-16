@@ -24,10 +24,10 @@ export default {
     }
   },
   actions: {
-    [USER_SIGNIN]({commit}, user) {
+    [USER_SIGNIN]({ commit }, user) {
       commit(USER_SIGNIN, user)
     },
-    [USER_SIGNOUT]({commit}) {
+    [USER_SIGNOUT]({ commit }) {
       commit(USER_SIGNOUT)
     }
   }

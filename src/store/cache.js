@@ -10,7 +10,7 @@ export default {
     }
   },
   actions: {
-    [PRIVILEGE_GROUP]({commit}, data) {
+    [PRIVILEGE_GROUP]({ commit }, data) {
       commit(PRIVILEGE_GROUP, data)
     }
   }
